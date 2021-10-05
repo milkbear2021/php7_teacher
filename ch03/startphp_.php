@@ -1,12 +1,21 @@
 <html>
-<head>
-<title>我的第一個PHP程式</title>
-</head>
-<body>
 
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>好了我現在不是亂碼</title>
+</head>
+
+<body>
+	<!--這是HTML的註解-->
 <?php 
-	echo "嗨，PHP你好!!"; 
+	echo "我現在不是亂碼!!"; 
+	//這是一列解
+	#這也可以當一列的註解
+	/*
+	這是多列的註解
+	*/
 ?>
 
 </body>
+
 </html>
