@@ -16,6 +16,7 @@
     <?php
         echo "你所輸入的帳號為:".$_POST['username']."<br>";
         echo "你所輸入的密碼為:".$_POST['password']."<br>";
+        echo "你所輸入的簡介為:".nl2br($_POST['intro'])."<br>";
 ?>
     <!--<button class="btn btn-info" onclick="javascript:window.history.back();">回上一頁</button>-->
     <button class="btn btn-info" onclick="history.go(-1);">回上一頁</button>

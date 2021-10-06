@@ -20,21 +20,33 @@
                     <table class="table table-striped table-hover">
                         <div class="form-group">
                             <tr>
-                            <td class="col-2"><label for="username">帳號</label></td>
-                            <td><input calss="col-7" type="text" id="username" name="username" placeholder="請輸入帳號" class="form-control"></td>
+                                <td class="col-2"><label for="username">帳號</label></td>
+                                <td><input calss="col-7" type="text" id="username" name="username" placeholder="請輸入帳號"
+                                        class="form-control"></td>
                             </tr>
                         </div>
                         <p></p>
                         <div class="form-group">
                             <td class="col-2"><label for="password">密碼</label></td>
-                            <td><input calss="col-7" type="password" id="password" name="password" placeholder="請輸入密碼" class="form-control"></td>
+                            <td><input calss="col-7" type="password" id="password" name="password" placeholder="請輸入密碼"
+                                    class="form-control"></td>
                             </tr>
                         </div>
                         <p></p>
                         <div class="form-group">
                             <tr>
-                            <td class="col-2">&nbsp;</td>
-                            <td class="col-7 "><input type="submit" name="sub1" id="sub1" value="確定" class="btn btn-sm btn-warning"></td>
+                                <td class="col-2"><label for="intro">簡介</label></td>
+                                <td class="col-7"><textarea name="intro" id="intro" cols="40" rows="10"
+                                        class="form-control">
+                            </textarea>
+                                </td>
+                            <tr>
+                        </div>
+                        <div class="form-group">
+                            <tr>
+                                <td class="col-2">&nbsp;</td>
+                                <td class="col-7 "><input type="submit" name="sub1" id="sub1" value="確定"
+                                        class="btn btn-sm btn-warning"></td>
                             </tr>
                         </div>
                     </table>
