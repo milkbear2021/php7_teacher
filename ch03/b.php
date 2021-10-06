@@ -15,8 +15,10 @@
 <body>
     <?php
         echo "你所輸入的帳號為:".$_POST['username']."<br>";
-        echo "你所輸入的密碼為:".$_POST['password'];
+        echo "你所輸入的密碼為:".$_POST['password']."<br>";
 ?>
+    <!--<button class="btn btn-info" onclick="javascript:window.history.back();">回上一頁</button>-->
+    <button class="btn btn-info" onclick="history.go(-1);">回上一頁</button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
