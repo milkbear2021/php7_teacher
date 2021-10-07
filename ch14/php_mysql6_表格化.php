@@ -20,7 +20,7 @@
 	if (!$seldb) die("資料庫選擇失敗！");//如果連線失敗、顯示"資料庫選擇失敗！"
 	$sql_query = "SELECT * FROM students";//將SQL指令的字串放到sql_query變數
 	$result = mysqli_query($db_link, $sql_query);//執行SQL指令且將資料放入$result陣列
-    echo "<div class='col-8 offset-2'>";
+    echo "<div class='col-10 offset-1'>";
     echo "<table class='table table-striped'>";
     echo "<thead>";
     echo "<tr>";
@@ -37,8 +37,8 @@
     echo "</thead>";
 	while($row_result=mysqli_fetch_row($result)){//一次取得一筆資料且放入放入$row_result陣列
         echo "<tr>";
-		foreach($row_result as $item=>$value){//再把取得的資料索引放入到$item內容放到$value
-       
+		//foreach($row_result as $item=>$value){//再把取得的資料索引放入到$item內容放到$value
+        foreach($row_result as $value){
 			echo "<td>".$value."</td>";
            		}
         echo "</tr>";
