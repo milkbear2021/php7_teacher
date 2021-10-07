@@ -5,9 +5,9 @@
     $typeA=justifyType(gettype($a));//呼叫函數justifyType
     $typeB=justifyType(gettype($b));
     $typeC=justifyType(gettype($c));
-    echo "變數a的資料型態為:{$typeA}、內容為:{$a}<br>";
-    echo "變數b的資料型態為:{$typeB}、內容為:{$b}<br>";
-    echo "變數c的資料型態為:{$typeC}、內容為:{$c}<br>";
+    echo "變數a的資料型態為:{$typeA}(".gettype($a).")、內容為:{$a}<br>";
+    echo "變數b的資料型態為:{$typeB}(".gettype($b).")、內容為:{$b}<br>";
+    echo "變數c的資料型態為:{$typeC}(".gettype($c).")、內容為:{$c}<br>";
        if($a!==$b){//$a===$b代表資料型態或內容中有最少一個是不同的
         echo "變數a及變數b不完全相等";
         }else{
