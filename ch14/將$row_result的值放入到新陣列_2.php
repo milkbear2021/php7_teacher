@@ -26,11 +26,10 @@
             $personalRecord[$rowNum][$key]=$value;
         }
         $rowNum++;
-        
-	}
+        }
     //echo "編號:".$personalRecord[1]['cID'];
 ?>
-    <table class="table table-light">
+    <table class="table table-light table-striped table-hover">
         <thead class="thead-dark">
             <tr>
                 <th>編號</th>
@@ -45,10 +44,12 @@
             </tr>
         </thead>
         <tbody>
-            <?php for($i=0;$i<count($personalRecord);$i++){?>
-            <?php for($j=0;$j<count($personalRecord);$j++){?>
+            <tr>
+            <?php for($i=0;$i<count($personalRecord);$i++){?><!--count($personalRecord)共有多少筆資料-->
+            <?php for($j=0;$j<=$key;$j++){?><!--$key為第二維陣列的索引也就是多少個欄位 -->
             <td><?=$personalRecord[$i][$j];?></td>
             <?php }?>
+            </tr>
             <?php }?>
         </tbody>
 
