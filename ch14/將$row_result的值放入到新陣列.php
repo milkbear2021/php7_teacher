@@ -20,22 +20,15 @@
 	if (!$seldb) die("資料庫選擇失敗！");//如果連線失敗、顯示"資料庫選擇失敗！"
     $sql_query = "SELECT * FROM students";//將SQL指令的字串放到sql_query變數
 	$result = mysqli_query($db_link, $sql_query);//執行SQL指令且將資料放入$result陣列
-     while($row_result=mysqli_fetch_row($result)){//一次取得一筆資料且放入放入$row_result陣列
-        //echo count($row_result);
-        if(is_array($row_result)){
-
-            //$count = count($row_result);
-            echo '$row_result'.'為陣列';
-            
-            break;
-          } else {
-          
-            $count = '0';
-          
-          }
-          //php_mysql11.phpecho $count;
+    $rowNum =0;//設定二維陣列中第一維變數的初始值為0
+     while($row_result=mysqli_fetch_assoc($result)){//一次取得一筆資料且放入放入$row_result陣列
+        foreach($row_result as $key=>$value){
+            $personalRecord[$rowNum][$key]=$value;
+        }
+        $rowNum++;
+        
 	}
-    
+    echo "編號:".$personalRecord[1]['cID'];
 ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
