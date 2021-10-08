@@ -45,7 +45,7 @@
         </thead>
         <tbody>
             <tr>
-            <?php for($i=0;$i<count($personalRecord);$i++){?><!--count($personalRecord)共有多少筆資料-->
+            <?php for($i=count($personalRecord)-1;$i>=0;$i--){?><!--count($personalRecord)共有多少筆資料-->
                <?php for($j=0;$j<=$key;$j++){?><!--$key為第二維陣列的索引也就是多少個欄位 -->
             <td><?=$personalRecord[$i][$j];?></td>
             <?php }?>
