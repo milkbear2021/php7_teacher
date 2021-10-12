@@ -5,6 +5,7 @@
 	$result = $db_link->query($sql_query);
 	
 	echo "全班同學人數為：".$result->num_rows;
+
 	
 	$db_link->close();
 ?>
