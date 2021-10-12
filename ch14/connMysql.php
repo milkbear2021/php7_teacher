@@ -1,4 +1,5 @@
 <?php 
+	header("Content-Type: text/html; charset=utf-8");
 	//資料庫主機設定
 	$db_host = "localhost:3308";
 	$db_username = "root";
