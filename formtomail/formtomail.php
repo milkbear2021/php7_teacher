@@ -49,7 +49,7 @@
                         <table width="100%" border="0" cellpadding="5" cellspacing="0">
                             <tr>
                                 <td width="60"><strong> 寄件者</strong></td>
-                                <td><input type="text" name="mailfrom" id="mailfrom" style="width:300px" required></td>
+                                <td><input type="email" name="mailfrom" id="mailfrom" style="width:300px" required></td>
                             </tr>
                             <tr>
                                 <td><strong> 收件者</strong></td>
