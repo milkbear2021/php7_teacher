@@ -53,7 +53,8 @@
         autoplayTimeout: 1000,
         nav: true, //導航
         navText: ["上一張", "下一張"], // 導航文字
-
+        center: true,
+        rewind:true,
         responsive: {
             0: {
                 items: 1
