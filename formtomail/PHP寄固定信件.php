@@ -19,6 +19,7 @@
       
     $mail->From = "milkbear2021@gmail.com"; //寄件者信箱
     $mail->FromName = "牛奶熊"; //寄件者姓名
+    //$mail->From = $_POST['mailfrom']; //寄件者信箱
     $mail->AddAddress("milkbear2021@gmail.com", "熊心天下"); //收件人郵件和名稱
    // $mail->AddBCC('milkbear2017@gmail.com'); //設定 密件副本收件人 
     
