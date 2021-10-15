@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+    require_once("connMysqlObj.php");//載入連線檔
+    $sql_query = "SELECT photoName FROM picture";
+    $result = $db_link->query($sql_query);
+    
+?>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -24,14 +30,13 @@
 <body>
     <div class="container-fluid">
         <div class="owl-carousel owl-theme">
-            <div class="item"><img src="img/fullimage1.jpg" class="item img-fluid"></div>
-            <div class="item"><img src="img/fullimage2.jpg" class="item img-fluid"></div>
-            <div class="item"><img src="img/fullimage3.jpg" class="item img-fluid"></div>
-            <div class="item"><img src="img/fullimage4.jpg" class="item img-fluid"></div>
-            <div class="item"><img src="img/fullimage5.jpg" class="item img-fluid"></div>
-            <div class="item"><img src="img/fullimage6.jpg" class="item img-fluid"></div>
-            <div class="item"><img src="img/fullimage7.jpg" class="item img-fluid"></div>
-
+            <?php 
+                while($row_result = $result->fetch_row()){//這是mysqli Object的寫法
+                    foreach($row_result as $value){
+                        echo '<div class="item"><img src="img/'.$value.'.jpg" class="item img-fluid"></div>';
+                    }
+                }
+            ?>
         </div>
     </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -50,11 +55,11 @@
         loop: true,
         margin: 10,
         autoplay: true,
-        autoplayTimeout: 1000,
+        autoplayTimeout: 2000,
         nav: true, //導航
         navText: ["上一張", "下一張"], // 導航文字
         center: true,
-        rewind:true,
+        rewind: true,
         responsive: {
             0: {
                 items: 1
