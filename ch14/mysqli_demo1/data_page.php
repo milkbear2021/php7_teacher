@@ -22,7 +22,7 @@
 	//計算總筆數
 	$total_records = $all_result->num_rows;
 	//計算總頁數=(總筆數/每頁筆數)後無條件進位。
-	$total_pages = ceil($total_records/$pageRow_records);
+	$total_pages = ceil($total_records/$pageRow_records);//ceil無條件進位，ceil(總共有的資料筆數/每頁要顯示的資料筆數)
 ?>
 <html>
 <head>
@@ -68,7 +68,8 @@
     <td><a href="data_page.php?page=<?php echo $num_pages-1;?>">上一頁</a></td>
     <?php } ?>
     <?php if ($num_pages < $total_pages) { // 若不是最後一頁則顯示 ?>
-    <td><a href="data_page.php?page=<?php echo $num_pages+1;?>">下一頁</a></td>
+    <td><a href="data_page.php?page=<?=$num_pages+1;?>">下一頁</a></td>
+	<!--    <td><a href="data_page.php?page=<?php echo $num_pages+1;?>">下一頁</a></td>-->
     <td><a href="data_page.php?page=<?php echo $total_pages;?>">最後頁</a></td>
     <?php } ?>
   </tr>
@@ -78,8 +79,8 @@
   	<td>
   	  頁數：
   	  <?php
-  	  for($i=1;$i<=$total_pages;$i++){
-  	  	  if($i==$num_pages){
+  	  for($i=1;$i<=$total_pages;$i++){//從$i=1執行至$total_pages(總頁數)
+  	  	  if($i==$num_pages){//如果$i的值等於目前所在頁數即不做超連結
   	  	  	  echo $i." ";
   	  	  }else{
   	  	      echo "<a href=\"data_page.php?page={$i}\">{$i}</a> ";

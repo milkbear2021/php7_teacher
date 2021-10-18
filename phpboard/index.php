@@ -21,7 +21,7 @@ $all_RecBoard = $db_link->query($query_RecBoard);//將執行SQL指令的結果�
 //計算總筆數(參考書本14-28)
 $total_records = $all_RecBoard->num_rows;
 //計算總頁數=(總筆數/每頁筆數)後無條件進位。
-$total_pages = ceil($total_records/$pageRow_records);
+$total_pages = ceil($total_records/$pageRow_records);//ceil無條件進位，ceil(總共有的資料筆數/每頁要顯示的資料筆數)
 ?>
 <html>
 
@@ -92,16 +92,17 @@ $total_pages = ceil($total_records/$pageRow_records);
                             <td valign="middle">
                                 <p>資料筆數：<?php echo $total_records;?></p>
                             </td>
-                            <td align="right">
-                                <p>
-                                    <?php if ($num_pages > 1) { // 若不是第一頁則顯示 ?>
-                                    <a href="?page=1">第一頁</a> | <a href="?page=<?php echo $num_pages-1;?>">上一頁</a> |
-                                    <?php }?>
-                                    <?php if ($num_pages < $total_pages) { // 若不是最後一頁則顯示 ?>
-                                    <a href="?page=<?php echo $num_pages+1;?>">下一頁</a> | <a
-                                        href="?page=<?php echo $total_pages;?>">最末頁</a>
-                                    <?php }?>
-                                </p>
+                            <td align="left">
+                            頁數：
+                            <?php
+                                for($i=1;$i<=$total_pages;$i++){//從$i=1執行至$total_pages(總頁數)
+                                    if($i==$num_pages){//如果$i的值等於目前所在頁數即不做超連結
+                                        echo $i." ";
+                                    }else{
+                                        echo "<a href=\"index.php?page={$i}\">{$i}</a> ";
+                                    }
+                                }
+  	                         ?>
                             </td>
                         </tr>
                     </table>
