@@ -100,6 +100,7 @@ $total_pages = ceil($total_records/$pageRow_records);//ceil無條件進位，cei
                                         echo $i." ";
                                     }else{
                                         echo "<a href=\"index.php?page={$i}\">{$i}</a> ";
+                                       //echo "<a href='index.php?page=".$i."'>{$i}</a>"; 
                                     }
                                 }
   	                         ?>
