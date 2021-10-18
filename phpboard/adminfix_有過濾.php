@@ -1,4 +1,22 @@
 <?php
+function GetSQLValueString($theValue, $theType) {
+  switch ($theType) {
+    case "string":
+      $theValue = ($theValue != "") ? filter_var($theValue, FILTER_SANITIZE_MAGIC_QUOTES) : "";
+      break;
+    case "int":
+      $theValue = ($theValue != "") ? filter_var($theValue, FILTER_SANITIZE_NUMBER_INT) : "";
+      break;
+    case "email":
+      $theValue = ($theValue != "") ? filter_var($theValue, FILTER_VALIDATE_EMAIL) : "";
+      break;
+    case "url":
+      $theValue = ($theValue != "") ? filter_var($theValue, FILTER_VALIDATE_URL) : "";
+      break;      
+  }
+  return $theValue;
+}
+
 require_once("connMysql.php");
 session_start();
 //檢查是否經過登入
@@ -14,14 +32,14 @@ if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
 if(isset($_POST["action"])&&($_POST["action"]=="update")){	
 	$query_update = "UPDATE board SET boardname=?, boardsex=?, boardsubject=?, boardmail=?, boardweb=?, boardcontent=? WHERE boardid=?";
 	$stmt = $db_link->prepare($query_update);
-	$stmt->bind_param("ssssssi",$boardname,$boardsex,$boardsubject,$boardmail,$boardweb,$boardcontent,$boardid);
-  $boardname = $_POST["boardname"];
-  $boardsex = $_POST["boardsex"];
-  $boardsubject = $_POST["boardsubject"];
-  $boardmail = $_POST["boardmail"];
-  $boardweb = $_POST["boardweb"];
-  $boardcontent = $_POST["boardcontent"];
-	$boardid = $_POST["boardid"];
+	$stmt->bind_param("ssssssi",
+		GetSQLValueString($_POST["boardname"], "string"),
+		GetSQLValueString($_POST["boardsex"], "string"),
+		GetSQLValueString($_POST["boardsubject"], "string"),
+		GetSQLValueString($_POST["boardmail"], "email"),
+		GetSQLValueString($_POST["boardweb"], "url"),
+		GetSQLValueString($_POST["boardcontent"], "string"),
+		GetSQLValueString($_POST["boardid"], "int"));		
 	$stmt->execute();
 	$stmt->close();
 	//重新導向回到主畫面
