@@ -36,6 +36,13 @@
                         echo '<div class="item"><img src="img/'.$value.'.jpg" class="item img-fluid"></div>';
                     }
                 }
+                /*
+                while($row_result = $result->fetch_object()){
+
+                echo '<div class="item"><img src="img/'.$row_result->photoName.'.jpg" class="item img-fluid"></div>';
+
+                }
+                */
             ?>
         </div>
     </div>
