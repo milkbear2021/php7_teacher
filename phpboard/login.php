@@ -3,7 +3,7 @@ session_start();
 //如果沒有登入Session值或是Session值為空則執行登入動作
 if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 	if(isset($_POST["username"]) && isset($_POST["passwd"])){
-		require_once("connMysql.php");		
+		require_once("connMysql.php");	
 		//選取儲存帳號密碼的資料表
 		$sql_query = "SELECT * FROM admin";
 		$result = $db_link->query($sql_query);		
@@ -13,17 +13,25 @@ if(!isset($_SESSION["loginMember"]) || ($_SESSION["loginMember"]=="")){
 		$passwd = $row_result["passwd"];
 		$db_link->close();
 		//比對帳號密碼，若登入成功則進往管理界面，否則就退回主畫面。
-		if(($username==$_POST["username"]) && ($passwd==$_POST["passwd"])){
-			$_SESSION["loginMember"]=$username;
-			header("Location: admin.php");
+		if(($username==$_POST["username"]) && ($passwd==$_POST["passwd"])){//比對所輸入的資料及從資料庫中取出的資料比較
+			$_SESSION["loginMember"]=$username;//將從資料庫中取出的帳號放到session變數
+			header("Location: admin.php");//登入成功前往admin.php
 		}else{
-			header("Location: index.php");
+			header("Location: index.php");//登入失敗前往index.php
 		}
 	}
 }else{
 	//若已經有登入Session值則前往管理界面
 	header("Location: admin.php");
 }
+/*
+     while($row_result=mysqli_fetch_row($result)){//一次取得一筆資料且放入放入$row_result陣列
+        foreach($row_result as $key=>$value){
+            $personalRecord[$rowNum][$key]=$value;
+        }
+        $rowNum++;
+        }
+*/
 ?>
 <html>
 <head>
