@@ -13,12 +13,12 @@ $startRow_records = ($num_pages -1) * $pageRow_records;
 //未加限制顯示筆數的SQL敘述句
 $query_RecBoard = "SELECT * FROM board ORDER BY boardtime DESC";
 //加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
-$query_limit_RecBoard = $query_RecBoard." LIMIT {$startRow_records}, {$pageRow_records}";
+$query_limit_RecBoard = $query_RecBoard." LIMIT {$startRow_records}, {$pageRow_records}";//只有設定SQL指令文字但未執行
 //以加上限制顯示筆數的SQL敘述句查詢資料到 $RecBoard 中
-$RecBoard = $db_link->query($query_limit_RecBoard);
+$RecBoard = $db_link->query($query_limit_RecBoard);//將執行SQL指令的結果放到$RecBoard
 //以未加上限制顯示筆數的SQL敘述句查詢資料到 $all_RecBoard 中
-$all_RecBoard = $db_link->query($query_RecBoard);
-//計算總筆數
+$all_RecBoard = $db_link->query($query_RecBoard);//將執行SQL指令的結果放到$all_RecBoard
+//計算總筆數(參考書本14-28)
 $total_records = $all_RecBoard->num_rows;
 //計算總頁數=(總筆數/每頁筆數)後無條件進位。
 $total_pages = ceil($total_records/$pageRow_records);
@@ -64,7 +64,7 @@ $total_pages = ceil($total_records/$pageRow_records);
                                 <?php }else{?>
                                 <img src="images/female.gif" alt="我是女生" width="49" height="49">
                                 <?php }?>
-                                <br>
+                                <!--<br>-->
                                 <span class="postname"><?php echo $row_RecBoard["boardname"];?></span>
                             </td>
                             <td class="underline">
