@@ -11,7 +11,7 @@ if (isset($_GET['page'])) {//如果從URL列有傳來參數page則執行下列�
 //本頁開始記錄筆數 = (頁數-1)*每頁記錄筆數
 $startRow_records = ($num_pages -1) * $pageRow_records;
 //未加限制顯示筆數的SQL敘述句
-$query_RecBoard = "SELECT * FROM board ORDER BY boardtime DESC";
+$query_RecBoard = "SELECT * FROM board WHERE boardshow = 'Y' ORDER BY boardtime DESC";
 //加上限制顯示筆數的SQL敘述句，由本頁開始記錄筆數開始，每頁顯示預設筆數
 $query_limit_RecBoard = $query_RecBoard." LIMIT {$startRow_records}, {$pageRow_records}";//只有設定SQL指令文字但未執行
 //以加上限制顯示筆數的SQL敘述句查詢資料到 $RecBoard 中
