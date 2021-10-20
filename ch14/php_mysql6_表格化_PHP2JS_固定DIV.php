@@ -11,24 +11,19 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Title</title>
     <style>
-    #div1 {
-        background-color: #0062CC;
-        overflow: hidden;
-        z-index: 9999;
+    #footer {
         position: fixed;
         width: 100%;
-        height: 5%;
-        right: 0px;
-        top: 0px;
-        text-align: center;
+        bottom: 50;
+        z-index: 1;
+        background-color:darksalmon;
+        text-align: right;
     }
     </style>
 </head>
 
 <body>
-    <div id="fudong" style="width:90%; height:5%; position: absolute; right: 0px; top: 0px;z-index:9999;">
-    TEST
-    </div>
+    <div id="footer">footer圖片 and 內容</div>
 
     <?php 
 	header("Content-Type: text/html; charset=utf-8");
@@ -88,20 +83,6 @@
     $("#showSexDiv2").css({
         "font-size": "200%",
         "color": "red"
-    });
-    </script>
-    <script>
-    $(function() {
-        var timer, scrollTop, sideDiv = $('#fudong').appendTo('body');
-        $(window).scroll(function() {
-            timer && clearTimeout(timer);
-            scrollTop = $(this).scrollTop();
-            timer = setTimeout(function() {
-                sideDiv.animate({
-                    top: scrollTop
-                }, 10);
-            }, 10);
-        });
     });
     </script>
 </body>
