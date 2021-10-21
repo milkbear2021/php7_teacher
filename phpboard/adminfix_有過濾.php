@@ -32,14 +32,14 @@ if(isset($_GET["logout"]) && ($_GET["logout"]=="true")){
 if(isset($_POST["action"])&&($_POST["action"]=="update")){	
 	$query_update = "UPDATE board SET boardname=?, boardsex=?, boardsubject=?, boardmail=?, boardweb=?, boardcontent=? WHERE boardid=?";
 	$stmt = $db_link->prepare($query_update);
-	$stmt->bind_param("ssssssi",
-		GetSQLValueString($_POST["boardname"], "string"),
-		GetSQLValueString($_POST["boardsex"], "string"),
-		GetSQLValueString($_POST["boardsubject"], "string"),
-		GetSQLValueString($_POST["boardmail"], "email"),
-		GetSQLValueString($_POST["boardweb"], "url"),
-		GetSQLValueString($_POST["boardcontent"], "string"),
-		GetSQLValueString($_POST["boardid"], "int"));		
+  $stmt->bind_param("sssssssi",$boardname,$boardsex,$boardsubject,$boardmail,$boardweb,$boardcontent,$boardshow,$boardid);
+		$boardname = GetSQLValueString($_POST["boardname"], "string");
+		$boardsex = GetSQLValueString($_POST["boardsex"], "string");
+		$boardsubject=GetSQLValueString($_POST["boardsubject"], "string");
+		$boardmail = GetSQLValueString($_POST["boardmail"], "email");
+		$boardweb = GetSQLValueString($_POST["boardweb"], "url");
+		$boardcontent = GetSQLValueString($_POST["boardcontent"], "string");
+		$boardid = GetSQLValueString($_POST["boardid"], "int");		
 	$stmt->execute();
 	$stmt->close();
 	//重新導向回到主畫面
